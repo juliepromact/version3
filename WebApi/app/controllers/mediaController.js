@@ -121,7 +121,7 @@ $scope.uploadFile = function($files){
         
     this.$upload.upload({
         //Call api to upload.
-        url: apiPaths.UploadDocumentToAzure,
+        url: api/Media,
         file: file
         //})
     }).progress(function (evt) {
