@@ -1,5 +1,4 @@
-﻿//app.controller('productController',['$scope','CRUD_OperService','$log', function ($scope, CRUD_OperService,$log) {
-app.controller('mediaController',['$scope','mediaService','$routeParams', function ($scope, mediaService, $routeParams,$log) {
+﻿app.controller('mediaController',['$scope','mediaService','$routeParams', function ($scope, mediaService, $routeParams,$log) {
     //1 Mean New Entry  
     $scope.OperType = 1;
 
@@ -20,22 +19,6 @@ app.controller('mediaController',['$scope','mediaService','$routeParams', functi
 
               });
     }
-
-    ////To Get Update Detail on the Base of Update ID  
-    //$scope.getone = function (Update) {
-    //    var promiseGetSingle = updateService.get(Update.updateID);
-    //    promiseGetSingle.then(function (pl) {
-    //        var res = pl.data;
-    //        $scope.UpdateID = res.updateID;
-    //        $scope.UpdateIntro = res.updateIntro;
-    //        $scope.UpdateDetail = res.updateDetail;
-    //      //  $scope.Product_ID = res.product_ID;
-    //        $scope.OperType = 0;
-    //    },
-    //     function (errorPl) {
-    //         console.log('Some Error in Getting Details', errorPl);
-    //     });
-    //}
 
     //To Clear all input controls.  
     function ClearModels() {
