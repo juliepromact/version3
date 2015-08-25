@@ -1,5 +1,4 @@
-﻿//app.controller('productController',['$scope','CRUD_OperService','$log', function ($scope, CRUD_OperService,$log) {
-app.controller('signuprequestController', function ($scope, signuprequestService, $location, $rootScope) {
+﻿app.controller('signuprequestController', function ($scope, signuprequestService, $location, $rootScope) {
     $scope.OperType = 1;
     //1 Mean New Entry  
 

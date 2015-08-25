@@ -114,61 +114,57 @@ namespace WebApi.Controllers
         }
 
 
-      
-
         // POST api/Media/5
         [ResponseType(typeof(Media))]
-        public IHttpActionResult PostMedia(int id,Media media)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
+        public string PostMedia(int id)
+        {
             Media newImage = new Media();
             int times = db.Media.Where(d => d.Update_ID == id).Count();
             // this is working
 
             if (times < 5)
             {
-                //    HttpPostedFileBase file = Request.Files["OriginalLocation"];
-                //    newImage.MediaName = media.MediaName;
-                //    newImage.AlternateText = media.AlternateText;
-                //    newImage.VideoUrl = media.VideoUrl;
-                //    newImage.Discriminator = media.Discriminator;
-                //    //Here's where the ContentType column comes in handy.  By saving
-                //    //  this to the database, it makes it easier to get it back
-                //    //  later when trying to show the image.
-                //    newImage.ContentType = file.ContentType;
 
-                //    Int32 length = file.ContentLength;
-                //    //This may seem odd, but the fun part is that if
-                //    //  I didn't have a temp image to read into, I would
-                //    //  get memory issues for some reason.  Something to do
-                //    //  with reading straight into the object's ActualImage property.
-                //    byte[] tempImage = new byte[length];
-                //    file.InputStream.Read(tempImage, 0, length);
-                //    newImage.ImageData = tempImage;
-                //    newImage.Update_ID = id;
+                var file = HttpContext.Current.Request.Files.Count > 0 ?
+                HttpContext.Current.Request.Files[0] : null;
 
-                //    db.Media.Add(newImage);
-                //    db.SaveChanges();
-
-                //}
-
-
-                Media up = new Media()
+                if (file != null && file.ContentLength > 0)
                 {
-                    MediaName = media.MediaName,
-                    Update_ID = id
-                    // MediaUpdateDate = DateTime.Now
-                };
+                    var fileName = Path.GetFileName(file.FileName);
 
-                db.Media.Add(up);
-                db.SaveChanges();
-            }     
+                    var path = Path.Combine(
+                        HttpContext.Current.Server.MapPath("~/uploads"),
+                        fileName
+                    );
+                    newImage.MediaName = file.FileName;
+                    newImage.ContentType = file.ContentType;
+                    Int32 length = file.ContentLength;
+                    //This may seem odd, but the fun part is that if
+                    //  I didn't have a temp image to read into, I would
+                    //  get memory issues for some reason.  Something to do
+                    //  with reading straight into the object's ActualImage property.
+                    byte[] tempImage = new byte[length];
+                    file.InputStream.Read(tempImage, 0, length);
+                    newImage.ImageData = tempImage;
+                    newImage.Update_ID = id;
 
-            return CreatedAtRoute("DefaultApi", new { id = media.MediaID }, media);
+                    db.Media.Add(newImage);
+                    db.SaveChanges();
+
+                    file.SaveAs(path);
+                    return file != null ? "/uploads/" + file.FileName : null;
+                }
+
+                else
+                {
+                    //newImage.VideoUrl=
+                    return null;
+                }
+
+
+            }
+            return null;
         }
 
 

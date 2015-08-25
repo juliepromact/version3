@@ -1,4 +1,5 @@
-﻿app.controller('mediaController',['$scope','mediaService','$routeParams', function ($scope, mediaService, $routeParams,$log) {
+﻿//app.controller('mediaController', ['$scope', 'mediaService', '$routeParams', function ($scope, mediaService, $routeParams,$log) {
+app.controller('mediaController', ['$scope', 'mediaService', '$routeParams','$log', function ($scope, mediaService, $routeParams, $log, Upload) {
     //1 Mean New Entry  
     $scope.OperType = 1;
 
@@ -76,47 +77,29 @@
     };
 
 
-    //Upload files.
-//    private uploadFile($files) {
-//        var fileName = $files[0].name;
-//        var file = $files;
-        
-//        this.$upload.upload({
-//            //Call api to upload.
-//            url: apiPaths.UploadDocumentToAzure,
-//            file: file
-//        })
-//    }).progress(function (evt) {
-//        // get upload percentage
-//        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-//    }).success(function (data, status, headers, config) {
-//        // file is uploaded successfully
-//        console.log(data);
-//    }).error(function (data, status, headers, config) {
-//        // file failed to upload
-//        console.log(data);
-//    });
-//})
+    $scope.abc = "asdfasdf";
+    $scope.uploadFile = function ($files) {
+        var fileName = $files[0].name;
+        var file = $files;
 
-$scope.uploadFile = function($files){
-    var fileName = $files[0].name;
-    var file = $files;
-        
-    this.$upload.upload({
-        //Call api to upload.
-        url: api/Media,
-        file: file
-        //})
-    }).progress(function (evt) {
-        // get upload percentage
-        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-    }).success(function (data, status, headers, config) {
-        // file is uploaded successfully
-        console.log(data);
-    }).error(function (data, status, headers, config) {
-        // file failed to upload
-        console.log(data);
-    });
-    //});
-};
+        Upload.upload({
+            //Call api to upload.
+            //url: 'http://localhost:1853/api/Media',
+            url: 'api/Media/' + id,
+            //method: "post",
+            //data:{updateid:id},
+            file: file
+            //})
+        }).progress(function (evt) {
+            // get upload percentage
+            console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+        }).success(function (data, status, headers, config) {
+            // file is uploaded successfully
+            console.log(data);
+        }).error(function (data, status, headers, config) {
+            // file failed to upload
+            console.log(data);
+        });
+        //});
+    };
 }]);
