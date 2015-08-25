@@ -179,6 +179,7 @@
   <ItemGroup>
     <Folder Include="App_Data\Tmp\FileUploads\" />
     <Folder Include="Scripts\WebApi\" />
+    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />

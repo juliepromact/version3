@@ -1,5 +1,5 @@
 ﻿//app.controller('productController',['$scope','CRUD_OperService','$log', function ($scope, CRUD_OperService,$log) {
-app.controller('updateController', function ($scope, updateService, $location,$routeParams) {
+app.controller('updateController', function ($scope, updateService, $location,$routeParams,$rootScope) {
     $scope.OperType = 1;
     $scope.ProductID = $routeParams.productID;
     var id = $scope.ProductID;

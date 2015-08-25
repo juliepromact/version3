@@ -1,5 +1,5 @@
 ﻿//app.controller('mediaController', ['$scope', 'mediaService', '$routeParams', function ($scope, mediaService, $routeParams,$log) {
-app.controller('mediaController', ['$scope', 'mediaService', '$routeParams','$log', function ($scope, mediaService, $routeParams, $log, Upload) {
+app.controller('mediaController', ['$scope', 'mediaService', '$routeParams','$log','Upload', function ($scope, mediaService, $routeParams, $log, Upload) {
     //1 Mean New Entry  
     $scope.OperType = 1;
 
@@ -84,7 +84,7 @@ app.controller('mediaController', ['$scope', 'mediaService', '$routeParams','$lo
 
         Upload.upload({
             //Call api to upload.
-            //url: 'http://localhost:1853/api/Media',
+           
             url: 'api/Media/' + id,
             //method: "post",
             //data:{updateid:id},
