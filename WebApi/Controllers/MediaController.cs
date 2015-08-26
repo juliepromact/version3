@@ -26,23 +26,16 @@ namespace WebApi.Controllers
         }
 
         // GET api/Media/5
-
-        //public List<Media> GetMedia(int id)
-        //{
-        //    return db.Media.Where(d => d.Update_ID == id).ToList();
-        //}
-
         public IHttpActionResult GetMedia(int id)
         {
 
             Update up = db.Update
                 .Include(i => i.Media).Where(i => i.UpdateID == id)
                 .Single();
-            //var endUserProducts = new HashSet<int>(endUser.ProductNews.Select(c => c.ProductID));
+          
             var abc = PopulateAssignedMediaData(up);
             return Ok(abc);
-            //original
-            //return db.EveryBody;
+          
         }
 
         private List<Media> PopulateAssignedMediaData(Update up)
@@ -65,19 +58,6 @@ namespace WebApi.Controllers
             return viewModel;
         }
 
-        //// GET api/Media/5
-        //[ResponseType(typeof(Media))]
-        //public IHttpActionResult GetMedia(int id)
-        //{
-        //original method
-        //    Media media = db.Media.Find(id);
-        //    if (media == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return Ok(media);
-        //}
 
         // PUT api/Media/5
         public IHttpActionResult PutMedia(int id, Media media)
@@ -140,10 +120,6 @@ namespace WebApi.Controllers
                     newImage.MediaName = file.FileName;
                     newImage.ContentType = file.ContentType;
                     Int32 length = file.ContentLength;
-                    //This may seem odd, but the fun part is that if
-                    //  I didn't have a temp image to read into, I would
-                    //  get memory issues for some reason.  Something to do
-                    //  with reading straight into the object's ActualImage property.
                     byte[] tempImage = new byte[length];
                     file.InputStream.Read(tempImage, 0, length);
                     newImage.ImageData = tempImage;
@@ -166,23 +142,6 @@ namespace WebApi.Controllers
             }
             return null;
         }
-
-
-        //// POST api/Media2123/5
-        //[ResponseType(typeof(Media))]
-        //public IHttpActionResult PostMedia(Media media)
-        //{
-        //    //original
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    db.Media.Add(media);
-        //    db.SaveChanges();
-
-        //    return CreatedAtRoute("DefaultApi", new { id = media.MediaID }, media);
-        //}
 
         // DELETE api/Media/5
         [ResponseType(typeof(Media))]

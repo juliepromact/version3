@@ -1,5 +1,4 @@
-﻿//app.controller('productController',['$scope','CRUD_OperService','$log', function ($scope, CRUD_OperService,$log) {
-app.controller('enduserproductController', function ($scope, enduserproductService,$log,$location,$rootScope) {
+﻿app.controller('enduserproductController', function ($scope, enduserproductService,$log,$location,$rootScope) {
     $scope.OperType = 1;
   
     //1 Mean New Entry  
@@ -16,9 +15,7 @@ app.controller('enduserproductController', function ($scope, enduserproductServi
               });
     }
     $scope.addupdate = function (endUserDetails) {
-        //var promiseGetUpdate = CRUD_OperService.addupdate(ProductNew.productID);
         $location.path("/userupdate/" + endUserDetails.productID)
-        //$location.path("/update?id=" + ProductNew.productID)
         $rootScope.prodid = endUserDetails.productID;
     }
 

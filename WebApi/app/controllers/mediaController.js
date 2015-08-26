@@ -1,5 +1,4 @@
-﻿//app.controller('mediaController', ['$scope', 'mediaService', '$routeParams', function ($scope, mediaService, $routeParams,$log) {
-app.controller('mediaController', ['$scope', 'mediaService', '$routeParams','$log','Upload', function ($scope, mediaService, $routeParams, $log, Upload) {
+﻿app.controller('mediaController', ['$scope', 'mediaService', '$routeParams','$log','Upload', function ($scope, mediaService, $routeParams, $log, Upload) {
     //1 Mean New Entry  
     $scope.OperType = 1;
 

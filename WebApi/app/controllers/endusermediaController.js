@@ -1,5 +1,4 @@
-﻿//app.controller('productController',['$scope','CRUD_OperService','$log', function ($scope, CRUD_OperService,$log) {
-app.controller('endusermediaController', ['$scope', 'endusermediaService', '$routeParams', function ($scope, endusermediaService, $routeParams,$log) {
+﻿app.controller('endusermediaController', ['$scope', 'endusermediaService', '$routeParams', function ($scope, endusermediaService, $routeParams,$log) {
     //1 Mean New Entry  
     $scope.OperType = 1;
 

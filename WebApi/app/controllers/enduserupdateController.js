@@ -1,5 +1,4 @@
-﻿//app.controller('productController',['$scope','CRUD_OperService','$log', function ($scope, CRUD_OperService,$log) {
-app.controller('enduserupdateController', function ($scope, enduserupdateService, $location, $routeParams,$rootScope,$log) {
+﻿app.controller('enduserupdateController', function ($scope, enduserupdateService, $location, $routeParams,$rootScope,$log) {
     $scope.OperType = 1;
     $scope.ProductID = $routeParams.productID;
     var id = $scope.ProductID;
@@ -17,8 +16,6 @@ app.controller('enduserupdateController', function ($scope, enduserupdateService
 
               });
     }
-
-    
 
     $scope.addmedia = function (Update) {
         $location.path("/usermedia/" + Update.updateID)

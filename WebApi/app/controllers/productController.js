@@ -1,5 +1,4 @@
-﻿//app.controller('productController',['$scope','CRUD_OperService','$log', function ($scope, CRUD_OperService,$log) {
-app.controller('productController', function ($scope, CRUD_OperService, $location,$rootScope,$log) {
+﻿app.controller('productController', function ($scope, CRUD_OperService, $location,$rootScope,$log) {
     $scope.OperType = 1;  
     //1 Mean New Entry  
   
@@ -58,13 +57,12 @@ app.controller('productController', function ($scope, CRUD_OperService, $locatio
             $scope.Message = "Product Deleted Successfuly";
             GetAllRecords();  
             ClearModels();
-            //     $location.path('/login?id=' + ProductNew.productID);
         }, function (err) {  
             console.log("Err" + err);  
         });  
     }
   
-    //To Get Student Detail on the Base of Student ID  
+    //To Get Product Detail on the Base of Product ID  
     $scope.get = function (ProductNew) {
         var promiseGetSingle = CRUD_OperService.get(ProductNew.productID);
         promiseGetSingle.then(function (pl) {  
@@ -86,9 +84,7 @@ app.controller('productController', function ($scope, CRUD_OperService, $locatio
     }
 
     $scope.addupdate = function (ProductNew) {
-        //var promiseGetUpdate = CRUD_OperService.addupdate(ProductNew.productID);
         $location.path("/update/" + ProductNew.productID)
-       //$location.path("/update?id=" + ProductNew.productID)
         $rootScope.prodid = ProductNew.productID;
     }
     

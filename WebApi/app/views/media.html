@@ -1,14 +1,13 @@
 ﻿<form typeof="multipart/form-data">
     <table id="tblContainer">
         <!--data-ng-controller="mediaController">-->
-        {{abc}}
         <tr>
             <td>
                 <table class="table-bordered">
                     <tr>
                         <th class="col-md-10">Media Name</th>
                         <th></th>
-                        <th></th>
+                        
                     </tr>
                     <tbody data-ng-repeat="media in Media">
                         <tr>
@@ -26,13 +25,13 @@
             <td>
                 <div style="color: red;">{{Message}}</div>
                 <table style="border: solid 2px Black; padding: 2px;">
-                    <tr>
+                    <!--<tr>
                         <td></td>
                         <td><span> Media Name</span></td>
                         <td>
                             <input type="text" id="MediaName" data-ng-model="MediaName" />
                         </td>
-                    </tr>
+                    </tr>-->
                     <tr>
                         <td></td>
                         <td>
@@ -41,21 +40,17 @@
                         </td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                         <td></td>
                         <td>
                             <input type="button" id="save" value="Save" data-ng-click="save()" />
                             <input type="button" id="Clear" value="Clear" data-ng-click="clear()" />
                         </td>
                         <td></td>
-                    </tr>
+                    </tr>-->
                 </table>
             </td>
         </tr>
     </table>
     </form>
-    <!--<script src="~/Scripts/angular.js"></script>
-    <script src="~/Scripts/angular-route.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/services/mediaService.js"></script>
-    <script src="app/controllers/mediaController.js"></script>-->
+  

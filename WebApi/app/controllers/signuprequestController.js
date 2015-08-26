@@ -9,7 +9,6 @@
         promiseGet.then(function (pl) { $scope.ProductOwner = pl.data },
               function (errorPl) {
                   //  $log.error('Some Error in Getting Records.', errorPl);  
-
               });
     }
 
@@ -19,8 +18,6 @@
         promiseDelete.then(function (pl) {
             $scope.Message = "Signup Request Deleted Successfuly";
             GetAllRecords();
-            //ClearModels();
-            //     $location.path('/login?id=' + ProductNew.productID);
         }, function (err) {
             console.log("Err" + err);
         });
@@ -72,7 +69,7 @@
     };
 
   
-    //To Get Student Detail on the Base of Student ID  
+    //To Get  Detail on the Base of ID  
     $scope.get = function (ProductOwner) {
         var promiseGetSingle = signuprequestService.get(ProductOwner.id);
         promiseGetSingle.then(function (pl) {
@@ -91,7 +88,6 @@
             $scope.Message = "Invitation Send Successfuly";
             GetAllRecords();
             //ClearModels();
-            //     $location.path('/login?id=' + ProductNew.productID);
         }, function (err) {
             console.log("Err" + err);
         });

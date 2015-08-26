@@ -1,5 +1,4 @@
-﻿/// <reference path="UploadCtrl.js" />
-'use strict';
+﻿'use strict';
 app.controller('signupController', ['$scope', '$location', '$timeout','$routeParams', 'authService', function ($scope, $location, $timeout,$routeParams, authService) {
 
     $scope.savedSuccessfully = false;
