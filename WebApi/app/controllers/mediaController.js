@@ -95,6 +95,8 @@
         }).success(function (data, status, headers, config) {
             // file is uploaded successfully
             console.log(data);
+            GetAllRecords();
+            $scope.Message = "Media Added Successfuly";
         }).error(function (data, status, headers, config) {
             // file failed to upload
             console.log(data);

@@ -67,7 +67,6 @@
             });
         }
     };
-
   
     //To Get  Detail on the Base of ID  
     $scope.get = function (ProductOwner) {
@@ -80,13 +79,13 @@
              console.log('Some Error in Getting Details', errorPl);
          });
     }
-
   
     $scope.approve = function (ProductOwner) {
         var promiseApprove = signuprequestService.put($scope.ID, ProductOwner);
         promiseApprove.then(function (pl) {
-            $scope.Message = "Invitation Send Successfuly";
             GetAllRecords();
+            $scope.Message = "Invitation Send Successfuly";
+           
             //ClearModels();
         }, function (err) {
             console.log("Err" + err);

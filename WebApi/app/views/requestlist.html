@@ -1,5 +1,4 @@
-﻿
-<table id="tblContainer" data-ng-controller="signuprequestController">
+﻿<table id="tblContainer" data-ng-controller="signuprequestController">
     <tr>
         <td>
             <!--<table style="border: solid 2px Green; padding: 5px;">-->
@@ -14,7 +13,6 @@
                 </tr>
                 <tbody data-ng-repeat="stud in ProductOwner">
                     <tr>
-
                         <td class="col-md-10"><span>{{stud.ownerName}}</span></td>
                         <td class="col-md-10"><span>{{stud.companyName}}</span></td>
                         <td class="col-md-10"><span>{{stud.email}}</span></td>
@@ -25,8 +23,6 @@
                         <td>
                             <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
                         </td>
-
-
                     </tr>
                 </tbody>
             </table>
@@ -34,8 +30,6 @@
         </td>
     </tr>
 </table>
-
-
 
 <script src="~/Scripts/angular.js"></script>
 <script src="~/Scripts/angular-route.js"></script>
