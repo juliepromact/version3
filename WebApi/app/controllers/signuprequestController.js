@@ -12,7 +12,7 @@
               });
     }
 
-    //To Delete Record  
+    //To Delete Record
     $scope.delete = function (ProductOwner) {
         var promiseDelete = signuprequestService.delete(ProductOwner.id);
         promiseDelete.then(function (pl) {

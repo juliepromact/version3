@@ -7,11 +7,15 @@
                     <tr>
                         <th class="col-md-10">Media Name</th>
                         <th></th>
-                        
+
                     </tr>
                     <tbody data-ng-repeat="media in Media">
                         <tr>
                             <td class="col-md-10"><span>{{media.mediaName}}</span></td>
+                            <td>
+                                <img src="../../uploads/{{media.mediaName}}" width="100" height="100" />
+                                <!--<img src="../../uploads/Hydrangeas.jpg" />-->
+                            </td>
                             <td>
                                 <input type="button" id="Delete" value="Delete" data-ng-click="delete(media)" />
                             </td>
@@ -52,5 +56,4 @@
             </td>
         </tr>
     </table>
-    </form>
-  
+</form>
