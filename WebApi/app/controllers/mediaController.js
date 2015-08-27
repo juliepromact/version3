@@ -4,19 +4,16 @@
 
     $scope.UpdateID = $routeParams.updateID;
 
-    var id = $scope.UpdateID;
-   
+    var id = $scope.UpdateID;   
     GetAllRecords();
     //To Get All Records  
     function GetAllRecords() {
         var promiseGet = mediaService.getAllMedia(id);
         promiseGet.then(function (pl) {
-
             $scope.Media = pl.data;
         },
               function (errorPl) {
                   $log.error('Some Error in Getting Records.', errorPl);
-
               });
     }
 
@@ -31,8 +28,8 @@
     $scope.clear = function () {
         $scope.OperType = 1;
         $scope.MediaName = "";
+        $scope.VideoUrl = "";
       }
-
 
     //To Delete Media  
     $scope.delete = function (Media) {

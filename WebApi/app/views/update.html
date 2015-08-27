@@ -9,36 +9,25 @@
         <tr>
             <td>
                 <table class="table">
-                    <!--<tr style="height: 30px; background-color: skyblue; color: maroon;">-->
                     <tr>
-                        <!--<th >ID</th>-->
-                        <th >Introduction</th>
-                        <th >Detail</th>
+                        <th>Introduction</th>
+                        <th>Detail</th>
                         <th></th>
                         <th></th>
                     </tr>
                     <tbody data-ng-repeat="update in Update">
                         <tr>
-
-                            <!--<td ><span>{{update.updateID}}</span></td>-->
-                            <td ><span>{{update.updateIntro}}</span></td>
-                            <td ><span>{{update.updateDetail}}</span></td>
-                            <!--<td>
-                                <input type="button" id="Edit" value="Edit" data-ng-click="get(update)" />
-                            </td>-->
-
+                            <td><span>{{update.updateIntro}}</span></td>
+                            <td><span>{{update.updateDetail}}</span></td>
                             <td>
-                                <input type="button" id="Delete" value="Delete"  data-ng-click="delete(update)" />
+                                <input type="button" id="Delete" value="Delete" data-ng-click="delete(update)" />
                             </td>
                             <td>
-                                <!--<button ng-click="customNavigate('Mike')">Rename Show</button>-->
                                 <input type="button" id="AddUpdate" value="Add Media" data-ng-click="addmedia(update)" />
                             </td>
                         </tr>
                     </tbody>
                 </table>
-
-
         <tr>
             <td>
                 <div style="color: red;">{{Message}}</div>
@@ -49,26 +38,22 @@
                             <span>Introduction</span>
                         </td>
                         <td>
-                            <!--<input type="text" id="sName" required data-ng-model="ProductName" />-->
                             <textarea id="UpdateIntro" maxlength="140" ng-keyup="checkIntro()" data-ng-model="UpdateIntro"></textarea>
                         </td>
                         <td>
                             <span id="charsLeft"></span>
                         </td>
                     </tr>
-
                     <tr>
                         <td></td>
                         <td>
                             <span>Detail</span>
                         </td>
                         <td>
-                            <!--<input type="text" id="sName" required data-ng-model="ProductName" />-->
                             <textarea id="UpdateDetail" ng-keyup="checkDetail()" required data-ng-model="UpdateDetail"></textarea>
                         </td>
-                       <td><span>{{words}}</span></td>
+                        <td><span>{{words}}</span></td>
                     </tr>
-
                     <tr>
                         <td></td>
                         <td></td>
@@ -80,16 +65,9 @@
                         <td></td>
                     </tr>
                 </table>
-
             </td>
         </tr>
     </table>
-
-    <!--<script src="~/Scripts/angular.js"></script>
-    <script src="~/Scripts/angular-route.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/services/updateService.js"></script>
-    <script src="app/controllers/updateController.js"></script>-->
 </body>
 </html>
 

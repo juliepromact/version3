@@ -15,7 +15,6 @@ namespace WebApi.Models
         public string UserName { get; set; }
         [Display(Name="Date of Joining")]
         public DateTime? DateOfJoining { get; set; }
-
         public string DateOfBirth { get; set; }
         public string Street1 { get; set; }
         public string Street2 { get; set; }
