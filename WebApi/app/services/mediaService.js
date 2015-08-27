@@ -18,10 +18,10 @@
     }
 
     //Update the media
-    this.put = function (MediaID, Media) {
+    this.put = function (UpdateID, Media) {
         var request = $http({
             method: "put",
-            url: "/api/Media/" + MediaID,
+            url: "/api/Media/" + UpdateID,
             data: Media
         });
         return request;

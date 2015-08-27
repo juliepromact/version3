@@ -60,38 +60,40 @@ namespace WebApi.Controllers
 
 
         // PUT api/Media/5
-        public IHttpActionResult PutMedia(int id, Media media)
+        public IHttpActionResult PutVideo(int id, Media media)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != media.MediaID)
-            {
-                return BadRequest();
-            }
+            Media newImage = new Media();
+            int times = db.Media.Where(d => d.Update_ID == id).Count();
+            // this is working
 
-            db.Entry(media).State = EntityState.Modified;
-
-            try
+            if (times < 5)
             {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MediaExists(id))
+                newImage.MediaName = media.MediaName;
+                newImage.VideoUrl = media.VideoUrl;
+                newImage.Update_ID = id;
+                newImage.Discriminator = "video";
+                db.Media.Add(newImage);
+                try
                 {
-                    return NotFound();
+                    db.SaveChanges();
                 }
-                else
+                catch (DbUpdateException)
                 {
+
                     throw;
+
                 }
+
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return CreatedAtRoute("DefaultApi", new { id = media.MediaID }, media);
         }
+
 
 
         // POST api/Media/5
@@ -124,7 +126,7 @@ namespace WebApi.Controllers
                     file.InputStream.Read(tempImage, 0, length);
                     newImage.ImageData = tempImage;
                     newImage.Update_ID = id;
-
+                    newImage.Discriminator = "image";
                     db.Media.Add(newImage);
                     db.SaveChanges();
 

@@ -180,6 +180,10 @@ namespace WebApi.Controllers
                     db.SaveChanges();
                     return CreatedAtRoute("DefaultApi", new { id = or.ID }, or);
                 }
+                else
+                {
+                    return Ok("Email is already taken.");
+                }
             }
             else
             {

@@ -44,11 +44,15 @@
         if ($scope.OperType === 1) {
             var promisePost = signuprequestService.post(ProductOwner);
             promisePost.then(function (pl) {
-                $scope.ID = pl.data.ID;
-                ClearModels();
-                $scope.Message = "Request Submitted Successfully";
-               // GetAllRecords();
-
+                if (pl.data == "Email is already taken.") {
+                    $scope.Message = "Email is already taken.";
+                }
+                else {
+                    $scope.ID = pl.data.ID;
+                    ClearModels();
+                    $scope.Message = "Request Submitted Successfully";
+                    // GetAllRecords();
+                }
             }, function (err) {
                 ClearModels();
                 $scope.Message = "Request Submission Failed";

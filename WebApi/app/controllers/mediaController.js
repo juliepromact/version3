@@ -52,7 +52,7 @@
             MediaName: $scope.MediaName
         };
         if ($scope.OperType === 1) {
-            var promisePost = mediaService.post(id, Media);
+            var promisePost = mediaService.put(id, Media);
             promisePost.then(function (pl) {
                 $scope.MediaID = pl.data.MediaID;
                 $scope.Message = "Media Added Successfuly";

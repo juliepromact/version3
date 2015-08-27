@@ -11,7 +11,8 @@
                         <tr>
                             <td class="col-md-10"><span>{{media.mediaName}}</span></td>
                             <td>
-                                <img ng-src="../../uploads/{{media.mediaName}}" width="100" height="100" />
+                                <img ng-if="media.discriminator=='image'" ng-src="../../uploads/{{media.mediaName}}" width="100" height="100" />
+                                <a ng-if="media.discriminator=='video'" href={{media.videoUrl}}>Click here to watch Video</a>
                             </td>
                             <td>
                                 <input type="button" id="Delete" value="Delete" data-ng-click="delete(media)" />
@@ -19,7 +20,6 @@
                         </tr>
                     </tbody>
                 </table>
-
             </td>
         </tr>
         <tr>
@@ -35,6 +35,34 @@
                         <td></td>
                     </tr>
                     </table>
+
+                <table style="border: solid 2px Black; padding: 2px;">
+                    <tr>
+                        <td></td>
+                        <td><span> Media Name</span></td>
+                        <td>
+                            <input type="text" id="MediaName" data-ng-model="MediaName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><span> Youtube Link</span></td>
+                        <td>
+                            <input type="text" id="VideoUrl" data-ng-model="VideoUrl" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="button" id="save" value="Save" data-ng-click="save()" />
+                            <input type="button" id="Clear" value="Clear" data-ng-click="clear()" />
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+
+
             </td>
         </tr>
     </table>
