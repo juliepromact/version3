@@ -24,6 +24,7 @@
     function ClearModels() {
         $scope.OperType = 1;
         $scope.MediaName = "";
+        $scope.VideoUrl = "";
     }
 
     //To Clear all Inputs controls value.  

@@ -50,7 +50,9 @@ namespace WebApi.Controllers
                     viewModel.Add(new Media
                     {
                         MediaID = media.MediaID,
-                        MediaName = media.MediaName
+                        MediaName = media.MediaName,
+                        Discriminator = media.Discriminator,
+                        VideoUrl = media.VideoUrl
                     });
                 }
             }
