@@ -12,16 +12,11 @@ app.controller('tokensManagerController', ['$scope', 'tokensManagerService', fun
     });
 
     $scope.deleteRefreshTokens = function (index, tokenid) {
-
         tokenid = window.encodeURIComponent(tokenid);
-
         tokensManagerService.deleteRefreshTokens(tokenid).then(function (results) {
-
             $scope.refreshTokens.splice(index, 1);
-
         }, function (error) {
             alert(error.data.message);
         });
     }
-
 }]);

@@ -1,4 +1,4 @@
-﻿app.controller('enduserupdateController', function ($scope, enduserupdateService, $location, $routeParams,$rootScope,$log) {
+﻿app.controller('enduserupdateController', function ($scope, enduserupdateService, $location, $routeParams,$log) {
     $scope.OperType = 1;
     $scope.ProductID = $routeParams.productID;
     var id = $scope.ProductID;
@@ -17,9 +17,9 @@
               });
     }
 
-    $scope.addmedia = function (Update) {
+    $scope.viewmedia = function (Update) {
         $location.path("/usermedia/" + Update.updateID)
-        $rootScope.upid = Update.updateID;
+       // $rootScope.upid = Update.updateID;
     }
 
 });

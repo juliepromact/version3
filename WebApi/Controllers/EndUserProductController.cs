@@ -75,83 +75,83 @@ namespace WebApi.Controllers
 
      
 
-        // GET api/EndUserProduct/5
-        [ResponseType(typeof(ProductNew))]
-        public IHttpActionResult GetProductNew(int id)
-        {
-            ProductNew productnew = db.ProductNew.Find(id);
-            if (productnew == null)
-            {
-                return NotFound();
-            }
+        //// GET api/EndUserProduct/5
+        //[ResponseType(typeof(ProductNew))]
+        //public IHttpActionResult GetProductNew(int id)
+        //{
+        //    ProductNew productnew = db.ProductNew.Find(id);
+        //    if (productnew == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(productnew);
-        }
+        //    return Ok(productnew);
+        //}
 
-        // PUT api/EndUserProduct/5
-        public IHttpActionResult PutProductNew(int id, ProductNew productnew)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT api/EndUserProduct/5
+        //public IHttpActionResult PutProductNew(int id, ProductNew productnew)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != productnew.ProductID)
-            {
-                return BadRequest();
-            }
+        //    if (id != productnew.ProductID)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(productnew).State = EntityState.Modified;
+        //    db.Entry(productnew).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductNewExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!ProductNewExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST api/EndUserProduct
-        [ResponseType(typeof(ProductNew))]
-        public IHttpActionResult PostProductNew(ProductNew productnew)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST api/EndUserProduct
+        //[ResponseType(typeof(ProductNew))]
+        //public IHttpActionResult PostProductNew(ProductNew productnew)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.ProductNew.Add(productnew);
-            db.SaveChanges();
+        //    db.ProductNew.Add(productnew);
+        //    db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = productnew.ProductID }, productnew);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = productnew.ProductID }, productnew);
+        //}
 
-        // DELETE api/EndUserProduct/5
-        [ResponseType(typeof(ProductNew))]
-        public IHttpActionResult DeleteProductNew(int id)
-        {
-            ProductNew productnew = db.ProductNew.Find(id);
-            if (productnew == null)
-            {
-                return NotFound();
-            }
+        //// DELETE api/EndUserProduct/5
+        //[ResponseType(typeof(ProductNew))]
+        //public IHttpActionResult DeleteProductNew(int id)
+        //{
+        //    ProductNew productnew = db.ProductNew.Find(id);
+        //    if (productnew == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.ProductNew.Remove(productnew);
-            db.SaveChanges();
+        //    db.ProductNew.Remove(productnew);
+        //    db.SaveChanges();
 
-            return Ok(productnew);
-        }
+        //    return Ok(productnew);
+        //}
 
         protected override void Dispose(bool disposing)
         {

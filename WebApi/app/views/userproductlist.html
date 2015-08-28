@@ -1,10 +1,9 @@
-﻿<div  data-ng-controller="enduserController" id="tblContainer">
-
-        <div data-ng-repeat="stud in EndUser">
-            <div>
-                <input type="checkbox" value="{{stud}}" name="selectedProducts" ng-model="stud.assigned" ng-checked="stud.assigned" />
-                <span>{{stud.productName}}</span>
-            </div>
+﻿<div data-ng-controller="enduserController" id="tblContainer">
+    <div data-ng-repeat="stud in EndUser">
+        <div>
+            <input type="checkbox" value="{{stud}}" name="selectedProducts" ng-model="stud.assigned" ng-checked="stud.assigned" />
+            <span>{{stud.productName}}</span>
         </div>
-    <input type="submit" value="Follow" class="btn btn-default" ng-click="save(EndUser)" /> 
+    </div>
+    <input type="submit" value="Follow" class="btn btn-default" ng-click="save(EndUser)" />
 </div>

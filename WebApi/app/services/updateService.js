@@ -18,15 +18,15 @@
         }
 
 
-    //Update the update "pun" 
-        this.put = function (UpdateID, Update) {
-            var request = $http({
-                method: "put",
-                url: "/api/Update/" + UpdateID,
-                data: Update
-            });
-            return request;
-        }
+    ////Update the update "pun" 
+    //    this.put = function (UpdateID, Update) {
+    //        var request = $http({
+    //            method: "put",
+    //            url: "/api/Update/" + UpdateID,
+    //            data: Update
+    //        });
+    //        return request;
+    //    }
 
     //Delete the Record  
         this.delete = function (UpdateID) {

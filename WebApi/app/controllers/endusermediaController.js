@@ -3,7 +3,6 @@
     $scope.OperType = 1;
 
     $scope.UpdateID = $routeParams.updateID;
-
     var id = $scope.UpdateID;
 
     GetAllRecords();
@@ -11,8 +10,7 @@
     function GetAllRecords() {
         var promiseGet = endusermediaService.getAllMedia(id);
         promiseGet.then(function (pl) {
-
-            $scope.Media = pl.data;
+        $scope.Media = pl.data;
         },
               function (errorPl) {
                   $log.error('Some Error in Getting Records.', errorPl);

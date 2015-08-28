@@ -1,4 +1,4 @@
-﻿app.controller('productController', function ($scope, CRUD_OperService, $location,$rootScope,$log) {
+﻿app.controller('productController', function ($scope, CRUD_OperService, $location,$log) {
     $scope.OperType = 1;  
     //1 Mean New Entry  
   
@@ -85,7 +85,7 @@
 
     $scope.addupdate = function (ProductNew) {
         $location.path("/update/" + ProductNew.productID)
-        $rootScope.prodid = ProductNew.productID;
+       // $rootScope.prodid = ProductNew.productID;
     }
     
 });

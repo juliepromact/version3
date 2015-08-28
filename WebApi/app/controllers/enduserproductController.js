@@ -1,4 +1,4 @@
-﻿app.controller('enduserproductController', function ($scope, enduserproductService,$log,$location,$rootScope) {
+﻿app.controller('enduserproductController', function ($scope, enduserproductService,$log,$location) {
     $scope.OperType = 1;
   
     //1 Mean New Entry  
@@ -14,9 +14,9 @@
                   $log.error('Some Error in Getting Records.', errorPl);
               });
     }
-    $scope.addupdate = function (endUserDetails) {
+    $scope.viewupdate = function (endUserDetails) {
         $location.path("/userupdate/" + endUserDetails.productID)
-        $rootScope.prodid = endUserDetails.productID;
+        //$rootScope.prodid = endUserDetails.productID;
     }
 
 });

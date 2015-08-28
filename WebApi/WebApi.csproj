@@ -293,7 +293,6 @@
     <Content Include="app\controllers\signuprequestController.js" />
     <Content Include="app\controllers\tokensManagerController.js" />
     <Content Include="app\controllers\updateController.js" />
-    <Content Include="app\controllers\UploadCtrl.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\endusermediaService.js" />
     <Content Include="app\services\enduserproductService.js" />
@@ -332,7 +331,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="Index.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />

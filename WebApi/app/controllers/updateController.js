@@ -1,4 +1,4 @@
-﻿app.controller('updateController', function ($scope, updateService, $location,$routeParams,$rootScope) {
+﻿app.controller('updateController', function ($scope, updateService, $location,$routeParams) {
     $scope.OperType = 1;
     $scope.ProductID = $routeParams.productID;
     var id = $scope.ProductID;
@@ -49,13 +49,13 @@
         });
 
     }
-    //To Create new record and Edit an existing Record.  
+    //To Create new record 
     $scope.save = function () {
         var Update = {
             UpdateIntro: $scope.UpdateIntro,
             UpdateDetail: $scope.UpdateDetail
         };
-        if ($scope.OperType === 1) {
+      //  if ($scope.OperType === 1) {
             var promisePost = updateService.post(id,Update);
             promisePost.then(function (pl) {
                 $scope.UpdateID = pl.data.UpdateID;
@@ -65,24 +65,14 @@
             }, function (err) {
                 console.log("Err" + err);
             });
-        } else {
-            //Edit the record                
-            Update.UpdateID = $scope.UpdateID;
-            var promisePut = updateService.put($scope.UpdateID, Update);
-            promisePut.then(function (pl) {
-                $scope.Message = "Update edited Successfuly";
-                GetAllRecords();
-                ClearModels();
-            }, function (err) {
-                console.log("Err" + err);
-            });
-        }
+//        }
+
     };
 
 
     $scope.addmedia = function (Update) {
         $location.path("/media/" + Update.updateID)
-        $rootScope.upid = Update.updateID;
+       // $rootScope.upid = Update.updateID;
     }
 
     $scope.checkIntro = function () {

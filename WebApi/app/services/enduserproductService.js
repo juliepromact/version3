@@ -5,7 +5,7 @@
         return $http.get("/api/EndUserProduct");
     }
 
-    this.addupdate = function (ProductID) {
+    this.viewupdate = function (ProductID) {
         var request = $http({
             method: "get",
             url: "/api/EndUserUpdate/" + ProductID

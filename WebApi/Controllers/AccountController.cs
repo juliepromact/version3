@@ -20,11 +20,11 @@ namespace WebApi.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        private AuthRepository _repo = null;
+       private AuthRepository _repo = null;
 
         public AccountController()
         {
-            _repo = new AuthRepository();
+           _repo = new AuthRepository();
         }
 
         private IAuthenticationManager Authentication
@@ -42,15 +42,7 @@ namespace WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-           // IdentityResult result = await _repo.RegisterUser(userModel);
             var result = await _repo.RegisterUser(userModel);
-
-            //IHttpActionResult errorResult = GetErrorResult(result);
-
-            //if (errorResult != null)
-            //{
-            //    return errorResult;
-            //}
 
             return Ok();
         }

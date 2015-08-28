@@ -1,10 +1,10 @@
-﻿app.controller('mediaController', ['$scope', 'mediaService', '$routeParams','$log','Upload', function ($scope, mediaService, $routeParams, $log, Upload) {
+﻿app.controller('mediaController', ['$scope', 'mediaService', '$routeParams', '$log', 'Upload', function ($scope, mediaService, $routeParams, $log, Upload) {
     //1 Mean New Entry  
     $scope.OperType = 1;
 
     $scope.UpdateID = $routeParams.updateID;
 
-    var id = $scope.UpdateID;   
+    var id = $scope.UpdateID;
     GetAllRecords();
     //To Get All Records  
     function GetAllRecords() {
@@ -29,7 +29,7 @@
         $scope.OperType = 1;
         $scope.MediaName = "";
         $scope.VideoUrl = "";
-      }
+    }
 
     //To Delete Media  
     $scope.delete = function (Media) {
@@ -44,44 +44,33 @@
 
     }
 
-    //To Create new record and Edit an existing Record.  
+    //To Create new record 
     $scope.save = function () {
         var Media = {
             MediaName: $scope.MediaName
         };
-        if ($scope.OperType === 1) {
+       // if ($scope.OperType === 1) {
             var promisePost = mediaService.put(id, Media);
             promisePost.then(function (pl) {
                 $scope.MediaID = pl.data.MediaID;
                 $scope.Message = "Media Added Successfuly";
                 GetAllRecords();
-               ClearModels();
-            }, function (err) {
-                console.log("Err" + err);
-            });
-        } else {
-            //Edit the record                
-            Media.MediaID = $scope.MediaID;
-            var promisePut = mediaService.put($scope.MediaID, Media);
-            promisePut.then(function (pl) {
-                $scope.Message = "Media edited Successfuly";
-                GetAllRecords();
                 ClearModels();
             }, function (err) {
                 console.log("Err" + err);
             });
-        }
+        //}
     };
 
 
-    $scope.abc = "asdfasdf";
+   
     $scope.uploadFile = function ($files) {
         var fileName = $files[0].name;
         var file = $files;
 
         Upload.upload({
             //Call api to upload.
-           
+
             url: 'api/Media/' + id,
             //method: "post",
             //data:{updateid:id},

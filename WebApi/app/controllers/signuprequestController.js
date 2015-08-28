@@ -34,14 +34,14 @@
         $scope.Message = "";
     }
 
-    //To Create new record and Edit an existing Record.  
+    //To Create new record 
     $scope.request = function () {
         var ProductOwner = {
             OwnerName: $scope.OwnerName,
             CompanyName: $scope.CompanyName,
             Email: $scope.Email
         };
-        if ($scope.OperType === 1) {
+   //     if ($scope.OperType === 1) {
             var promisePost = signuprequestService.post(ProductOwner);
             promisePost.then(function (pl) {
                 if (pl.data == "Email is already taken.") {
@@ -58,18 +58,7 @@
                 $scope.Message = "Request Submission Failed";
                 console.log("Err" + err);
             });
-        } else {
-            //Edit the record                
-            ProductOwner.ID = $scope.ID;
-            var promisePut = signuprequestService.put($scope.ID, ProductOwner);
-            promisePut.then(function (pl) {
-                $scope.Message = "Updated Successfuly";
-                GetAllRecords();
-                //ClearModels();
-            }, function (err) {
-                console.log("Err" + err);
-            });
-        }
+        //}
     };
   
     //To Get  Detail on the Base of ID  

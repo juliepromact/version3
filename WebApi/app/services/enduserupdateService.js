@@ -8,7 +8,7 @@
         return ab;
     }
 
-    this.addmedia = function (UpdateID) {
+    this.viewmedia = function (UpdateID) {
         var request = $http({
             method: "get",
             url: "/api/Media/" + UpdateID

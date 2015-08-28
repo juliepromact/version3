@@ -7,8 +7,7 @@ using System.Web;
 namespace WebApi.Models
 {
     public class Media
-    {
-        
+    {        
         public int MediaID { get; set; }
         public string VideoUrl { get; set; }
         public string MediaName { get; set; }

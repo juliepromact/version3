@@ -74,70 +74,70 @@ namespace WebApi.Controllers
 
             return viewModel;
         }
-        // PUT api/EndUserUpdate/5
-        public IHttpActionResult PutUpdate(int id, Update update)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT api/EndUserUpdate/5
+        //public IHttpActionResult PutUpdate(int id, Update update)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != update.UpdateID)
-            {
-                return BadRequest();
-            }
+        //    if (id != update.UpdateID)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(update).State = EntityState.Modified;
+        //    db.Entry(update).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UpdateExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!UpdateExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST api/EndUserUpdate
-        [ResponseType(typeof(Update))]
-        public IHttpActionResult PostUpdate(Update update)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST api/EndUserUpdate
+        //[ResponseType(typeof(Update))]
+        //public IHttpActionResult PostUpdate(Update update)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.Update.Add(update);
-            db.SaveChanges();
+        //    db.Update.Add(update);
+        //    db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = update.UpdateID }, update);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = update.UpdateID }, update);
+        //}
 
-        // DELETE api/EndUserUpdate/5
-        [ResponseType(typeof(Update))]
-        public IHttpActionResult DeleteUpdate(int id)
-        {
-            Update update = db.Update.Find(id);
-            if (update == null)
-            {
-                return NotFound();
-            }
+        //// DELETE api/EndUserUpdate/5
+        //[ResponseType(typeof(Update))]
+        //public IHttpActionResult DeleteUpdate(int id)
+        //{
+        //    Update update = db.Update.Find(id);
+        //    if (update == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Update.Remove(update);
-            db.SaveChanges();
+        //    db.Update.Remove(update);
+        //    db.SaveChanges();
 
-            return Ok(update);
-        }
+        //    return Ok(update);
+        //}
 
         protected override void Dispose(bool disposing)
         {

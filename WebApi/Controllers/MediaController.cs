@@ -28,14 +28,12 @@ namespace WebApi.Controllers
         // GET api/Media/5
         public IHttpActionResult GetMedia(int id)
         {
-
             Update up = db.Update
                 .Include(i => i.Media).Where(i => i.UpdateID == id)
                 .Single();
-          
+
             var abc = PopulateAssignedMediaData(up);
             return Ok(abc);
-          
         }
 
         private List<Media> PopulateAssignedMediaData(Update up)
@@ -56,7 +54,6 @@ namespace WebApi.Controllers
                     });
                 }
             }
-
             return viewModel;
         }
 
@@ -86,21 +83,14 @@ namespace WebApi.Controllers
                 }
                 catch (DbUpdateException)
                 {
-
                     throw;
-
                 }
-
             }
-
             return CreatedAtRoute("DefaultApi", new { id = media.MediaID }, media);
         }
 
-
-
         // POST api/Media/5
         [ResponseType(typeof(Media))]
-
         public string PostMedia(int id)
         {
             Media newImage = new Media();
@@ -109,14 +99,11 @@ namespace WebApi.Controllers
 
             if (times < 5)
             {
-
                 var file = HttpContext.Current.Request.Files.Count > 0 ?
                 HttpContext.Current.Request.Files[0] : null;
-
                 if (file != null && file.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(file.FileName);
-
                     var path = Path.Combine(
                         HttpContext.Current.Server.MapPath("~/uploads"),
                         fileName
@@ -131,18 +118,12 @@ namespace WebApi.Controllers
                     newImage.Discriminator = "image";
                     db.Media.Add(newImage);
                     db.SaveChanges();
-
                     file.SaveAs(path);
                     return file != null ? "/uploads/" + file.FileName : null;
                 }
 
                 else
-                {
-                    //newImage.VideoUrl=
                     return null;
-                }
-
-
             }
             return null;
         }
@@ -156,10 +137,8 @@ namespace WebApi.Controllers
             {
                 return NotFound();
             }
-
             db.Media.Remove(media);
             db.SaveChanges();
-
             return Ok(media);
         }
 
